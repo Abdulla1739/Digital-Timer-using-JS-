@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body style="margin: 0; padding: 0;">
+    <section>
+        <div class="container" style="height: 100vh; display: flex; justify-content: center; align-items: center; background-color: black;">
+            <span id="output" style="color: aliceblue; font-size: 5rem; display: flex; ">
+                <div id="hou" style="margin-right: 20px;">HH</div>
+                <div  style="margin-right: 20px;">:</div>
+                <div id="mine" style="margin-right: 20px;">MM</div>
+                <div style="margin-right: 20px;">:</div>
+                <div id="sec" style="margin-right: 20px;">SS</div>
+                <div id="AP" style="margin-right: 20px;">AM</div>
+            </span>
+        </div>
+    </section>
+</body>
+<script>
+    const getDayTime = () => {
+        const localTime = new Date();
+        const hour = localTime.getHours();
+        const minute = localTime.getMinutes();
+        const second = localTime.getSeconds();
+        document.getElementById('hou').innerHTML = `${hour}`;
+        document.getElementById('mine').innerHTML = `${minute}`;
+        document.getElementById('sec').innerHTML = `${second}`;
+        document.getElementById('AP').innerHTML = `${hour >= 12 ? "PM" : "AM"}`;
+        setTimeout(() => {
+            getDayTime();
+        }, 1000);
+    }
+
+    getDayTime();
+</script>
+
+
+</html>
